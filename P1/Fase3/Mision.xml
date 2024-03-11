@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Marcos Manteca Lozano-->
+<mis:mision idMision="MIS001" xmlns:xi="http://www.w3.org/2001/XInclude"
+                            xmlns:mis="http://www.piat.upm.es/mision" 
+                            xmlns:tar="http://www.piat.upm.es/tarea"
+                            xmlns:rob="http://www.piat.upm.es/robot"
+                            xmlns:res="http://www.piat.upm.es/responsable"
+                            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                            xsi:schemaLocation="http://www.piat.upm.es/mision Mision.xsd">
+
+        
+    <mis:fecha>2024-02-22</mis:fecha>
+    
+    <mis:idioma lang="es"/>
+    
+    <mis:descripcion>
+        Mision:<mis:key> higienizar </mis:key> los <mis:key> quirófanos </mis:key> existentes
+        en el <mis:key> Hospital Universitario </mis:key> para conseguir <mis:key> eliminar
+        bacterias </mis:key>
+    </mis:descripcion>
+    
+    <mis:responsables>
+            <xi:include href="Responsable1.xml"/>
+            <xi:include href="Responsable2.xml"/>
+    </mis:responsables>
+    <mis:robots>
+            <xi:include href="Robot1.xml"/>
+            <xi:include href="Robot2.xml"/>
+    </mis:robots>
+    
+    <mis:tareas>
+            <xi:include href="Tarea1.xml"/>
+            <xi:include href="Tarea2.xml"/>
+            <xi:include href="Tarea3.xml"/>
+    </mis:tareas>
+    
+    <mis:robotTarea>
+        <mis:tareaRealizada>TOXXI-00001</mis:tareaRealizada>
+        <mis:robotAsignado>id-253</mis:robotAsignado>  
+        <mis:robotAsignado>id-251</mis:robotAsignado>     
+    </mis:robotTarea>
+    
+
+</mis:mision>

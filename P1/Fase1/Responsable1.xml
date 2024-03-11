@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<responsable identificadorFiscal="M1234567A" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <colaboradores>
+        <persona>Marcos Manteca</persona>
+        <persona>Jaime Garcia</persona>
+        <persona>Belen Lozano</persona>
+        <departamento>Telematica</departamento>
+        <departamento>Logica</departamento>
+    </colaboradores>
+    <contacto>
+        <email>m.mlozano@alumnos.upm.es</email>
+        <uri>www.moodle.upm.es</uri>
+    </contacto>
+</responsable>

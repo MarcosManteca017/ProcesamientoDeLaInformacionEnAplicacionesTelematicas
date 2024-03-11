@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rob:robot idRobot="id-252" xmlns:xi="http://www.w3.org/2001/XInclude"
+xmlns:rob="http://www.piat.upm.es/robot" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.piat.upm.es/robot Robot.xsd">
+    <rob:funcionalidad>Limpieza con vapor de cristales</rob:funcionalidad>
+    <rob:sistemaLimpieza>vapor</rob:sistemaLimpieza>
+    <rob:homologaciones>diseño color ruedas </rob:homologaciones>
+    <rob:sensores>
+        <rob:numeroSensores>5</rob:numeroSensores>
+        <rob:sensor idSensor="ox2AV">
+            <rob:patogeno>estafilococo</rob:patogeno>
+            <rob:densidad>3000metros</rob:densidad>
+        </rob:sensor>
+    </rob:sensores>
+    <rob:actuadores>
+        <rob:numeroActuadores>5</rob:numeroActuadores>
+        <rob:actuador idActuador="AC01">
+            <rob:descripcion>Actua con una limpieza diaria</rob:descripcion>
+            <rob:alcanceSituacion>
+                <rob:tipoActuacion>Limpieza diaria</rob:tipoActuacion>
+                <rob:fechasActuacion>10:30:00 12:30:00</rob:fechasActuacion>
+            </rob:alcanceSituacion>
+        </rob:actuador>
+        <rob:actuador idActuador="AD02">
+            <rob:descripcion>Actua con una limpieza trimestral</rob:descripcion>
+            <rob:alcanceSituacion>
+                <rob:tipoActuacion>Limpieza trimestral</rob:tipoActuacion>
+                <rob:fechasActuacion>14:30:00 22:15:00</rob:fechasActuacion>
+            </rob:alcanceSituacion>
+        </rob:actuador>
+    </rob:actuadores>
+</rob:robot>

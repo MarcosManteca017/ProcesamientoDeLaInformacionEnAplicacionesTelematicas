@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<responsable identificadorFiscal="M1234567A" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <colaboradores>
+        <departamento>Señales</departamento>
+    </colaboradores>
+    <contacto>
+        <email>marcos.manteca2@gmail.com</email>
+    </contacto>
+</responsable>

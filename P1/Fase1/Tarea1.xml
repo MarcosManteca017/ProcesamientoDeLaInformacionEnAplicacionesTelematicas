@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tarea idTarea="TOXXI-0001" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <descripcionTarea>Esta tarea requiere la especificación de la ubicación utilizando el formato KML.</descripcionTarea>
+    <espacioTarea>
+        <volumenEspacio>
+            <centro>
+                <longitud>80</longitud>
+                <latitud>40</latitud>
+                <altitud>1000</altitud>
+            </centro>
+            <forma>cuadrado</forma>
+            <altura>3</altura>
+        </volumenEspacio>
+    </espacioTarea>
+</Tarea>

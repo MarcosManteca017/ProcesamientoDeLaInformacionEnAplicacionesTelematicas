@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tarea idTarea="TOXXI-0003" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <descripcionTarea>Esta tarea requiere la especificación de la ubicación utilizando el formato GPX.</descripcionTarea>
+    <espacioTarea>
+        <imagen idImagen="IMAG001">
+            <datosImagen>
+                <dimensiones>
+                    <ancho>45</ancho>
+                    <alto>50</alto>
+                </dimensiones>
+                <descripcion>Contiene imagenes de limpieza</descripcion>
+            </datosImagen>
+            <contenido formato="PNG"></contenido>
+        </imagen>
+    </espacioTarea>
+</Tarea>

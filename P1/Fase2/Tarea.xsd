@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        targetNamespace="http://www.piat.upm.es/tarea" 
+                        xmlns:tns="http://www.piat.upm.es/tarea" 
+                        elementFormDefault="qualified"> 
+
+
+
+<xsd:element name="tarea" type="tns:tipoTarea"/>
+<xsd:complexType name="tipoTarea">
+    <xsd:sequence>
+        <xsd:element name="descripcionTarea" type="xsd:string"/>
+        <xsd:element name="espacioTarea" type="tns:tipoEspacio"/>
+    </xsd:sequence>
+<xsd:attribute name="idTarea" type="tns:tipoIdTarea"/>
+</xsd:complexType>
+<xsd:simpleType name="tipoIdTarea">
+    <xsd:restriction base="xsd:string">
+        <xsd:pattern value="[A-Z]{5}-[0-9]{5}"/>
+    </xsd:restriction>
+</xsd:simpleType>
+<xsd:complexType name="tipoEspacio">
+    <xsd:choice>
+        <xsd:element name="volumenEspacio" type="tns:tipoVolumen"/>
+        <xsd:element name="puntosEspacio" type="tns:tipoPuntos"/>
+        <xsd:element name="imagen" type="tns:tipoImagen"/>
+    </xsd:choice>
+</xsd:complexType>
+<xsd:complexType name="tipoVolumen">
+    <xsd:all>
+        <xsd:element name="centro" type="tns:tipoCentro"/>
+        <xsd:element name="forma" type="tns:tipoForma"/>
+        <xsd:element name="altura" type="xsd:int"/>
+    </xsd:all>
+</xsd:complexType>
+<xsd:complexType name="tipoCentro">
+    <xsd:all>
+        <xsd:element name="longitud" type="xsd:int"/>
+        <xsd:element name="latitud" type="xsd:int"/>
+        <xsd:element name="altitud" type="xsd:int"/>
+    </xsd:all>
+</xsd:complexType>
+<xsd:simpleType name="tipoForma">
+    <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="circulo"/>
+        <xsd:enumeration value="cuadrado"/>
+        <xsd:enumeration value="rectangulo"/>
+        <xsd:enumeration value="poligono"/>
+    </xsd:restriction>
+</xsd:simpleType>
+<xsd:complexType name="tipoPuntos">
+    <xsd:sequence>
+        <xsd:element name="punto" type="tns:tipoPunto" minOccurs="3" maxOccurs="unbounded"/><!-- preguntar como hacer seq de al menos tres elementos punto-->
+        <xsd:element name="altura" type="xsd:int" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="tipoPunto">
+    <xsd:all>
+        <xsd:element name="longitud" type="tns:tipoLongitd"/> <!-- ¿seria asi?-->
+        <xsd:element name="latitud" type="tns:tipoLatitud"/>
+        <xsd:element name="altitud" type="tns:tipoAltitud"/>
+    </xsd:all>
+</xsd:complexType>
+<xsd:simpleType name="tipoLongitd">
+    <xsd:restriction base="xsd:double">
+        <xsd:minInclusive value="0"/>
+        <xsd:maxInclusive value="180"/>
+    </xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="tipoLatitud">
+    <xsd:restriction base="xsd:double">
+        <xsd:minInclusive value="-90"/>
+        <xsd:maxInclusive value="90"/>
+    </xsd:restriction>
+</xsd:simpleType>
+<xsd:simpleType name="tipoAltitud">
+    <xsd:restriction base="xsd:double">
+        <xsd:minInclusive value="-416.5"/>
+        <xsd:maxInclusive value="8848"/>
+    </xsd:restriction>
+</xsd:simpleType>
+<xsd:complexType name="tipoImagen">
+    <xsd:sequence>
+        <xsd:element name="datosImagen" type="tns:tipoDatosImag"/>
+        <xsd:element name="contenido" type="tns:tipoContenido"/> <!-- ¿como se haria?-->
+    </xsd:sequence>
+<xsd:attribute name="idImagen" type="tns:tipoIdImagen"/>
+</xsd:complexType>
+<xsd:complexType name="tipoDatosImag">
+    <xsd:sequence>
+        <xsd:element name="dimensiones" type="tns:tipoDimensiones"/>
+        <xsd:element name="descripcion" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+</xsd:complexType>
+<xsd:complexType name="tipoContenido"> 
+    <xsd:simpleContent>
+        <xsd:extension base="xsd:string"> <!-- La extensión base (base) en XML Schema se utiliza para extender o especializar un tipo de datos existente. En el contexto de la definición de tipos complejos en XML Schema, la extensión base permite agregar nuevos elementos o atributos a un tipo de datos existente.-->
+            <xsd:attribute name="formato" type="tns:tipoFormato"/>
+        </xsd:extension>
+    </xsd:simpleContent>
+</xsd:complexType>
+<xsd:notation name="PNG" public="image/png"/><!-- seria asi?-->
+<xsd:notation name="JPEG" public="image/jpeg"/>
+<xsd:notation name="GIF" public="image/gif"/>
+<xsd:simpleType name="tipoFormato">
+    <xsd:restriction base="xsd:string"> 
+    <xsd:enumeration value="GIF"/>
+    <xsd:enumeration value="JPEG"/>
+    <xsd:enumeration value="PNG"/>
+    </xsd:restriction>
+</xsd:simpleType>
+<xsd:complexType name="tipoDimensiones">
+    <xsd:sequence>
+        <xsd:element name="ancho" type="xsd:int"/>
+        <xsd:element name="alto" type="xsd:int"/>
+    </xsd:sequence>
+</xsd:complexType>
+<xsd:simpleType name="tipoIdImagen"> <!-- seria asi? mirar diferencia entre string token--> 
+    <xsd:restriction base="xsd:token">
+        <xsd:pattern value="IMAG[0-9]{3}"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+</xsd:schema>

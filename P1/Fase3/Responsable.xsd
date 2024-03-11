@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Marcos Manteca Lozano-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+targetNamespace="http://www.piat.upm.es/responsable" 
+xmlns:tns="http://www.piat.upm.es/responsable" 
+elementFormDefault="qualified"> 
+
+
+<xsd:element name="responsable" type="tns:tipoResponsable"/>
+<xsd:complexType name="tipoResponsable">
+    <xsd:all>
+        <xsd:element name="colaboradores" type="tns:tipoColaboradores"/>
+        <xsd:element name="contacto" type="tns:tipoContacto" />
+    </xsd:all>
+<xsd:attribute name="identificadorFiscal" type="tns:tipoIdentificador" use="required"/>
+</xsd:complexType>
+
+<xsd:complexType name="tipoColaboradores">
+    <xsd:choice minOccurs="1" maxOccurs="unbounded">
+            <xsd:element name="persona" type="xsd:string"/>
+            <xsd:element name="departamento" type="xsd:string"/>
+    </xsd:choice>
+</xsd:complexType>
+
+<xsd:complexType name="tipoContacto">
+    <xsd:all minOccurs="1">
+        <xsd:element name="email" type="tns:tipoEmail" minOccurs="1"/>
+        <xsd:element name="uri" type="xsd:anyURI" minOccurs="0" maxOccurs="1"/>
+    </xsd:all>
+</xsd:complexType>
+
+<xsd:simpleType name="tipoEmail">
+    <xsd:restriction base="xsd:string">
+        <xsd:pattern value="[A-z]{10}@[a-z]{5}.[a-z]{3}"/> <!-- indagar como poder poner varias dir.email sin expresiones reg-->
+    </xsd:restriction>
+
+</xsd:simpleType>
+
+<xsd:simpleType name="tipoIdentificador">
+    <xsd:restriction base="xsd:string">
+        <xsd:pattern value="[A-Z][0-9]{7}[A-Z]"/>
+    </xsd:restriction>
+</xsd:simpleType>
+</xsd:schema>
+
+
+<!-- espSist: que es del tipo tipoCtrlSist definido en el espacio de nombres del Esquema
+1, pero añadiendo a ese tipo el grupo de atributos formado por:
+ -id: palabra: atributo obligatorio.
+-idioma: atributo opcional en formato de dos letras (ejemplo para español:
+“es”). Debe usar el tipo de XMLSchema que lo implementa.
+
+    <xsd:element name="espSist" type="tns:tipoCtrlSistExtendido"/>
+
+<xsd:complexType name="tipoCtrlSistExtendido">
+    <xsd:complexContent>
+        <xsd:extension base="des:tipoCtrlSist">
+            <xsd:attributeGroup ref="tns:atributosExtra"/>
+        </xsd:extension>
+    </xsd:complexContent>
+</xsd:complexType>
+
+<xsd:attributeGroup name="atributosExtra">
+    <xsd:attribute name="id" type="xsd:token" use="required"/>
+    <xsd:attribute name="idioma" type="xsd:language" use="optional"/>
+</xsd:attributeGroup>
+-->

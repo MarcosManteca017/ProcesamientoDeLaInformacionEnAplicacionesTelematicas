@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Marcos Manteca Lozano-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+xmlns:xi="http://www.w3.org/2001/XInclude"
+                        targetNamespace="http://www.piat.upm.es/mision" 
+                        xmlns:tns="http://www.piat.upm.es/mision" 
+                        xmlns:tar="http://www.piat.upm.es/tarea"
+                        xmlns:rob="http://www.piat.upm.es/robot"
+                        xmlns:res="http://www.piat.upm.es/responsable"
+                        elementFormDefault="qualified"> 
+<xsd:import namespace="http://www.piat.upm.es/tarea" schemaLocation="Tarea.xsd"/>
+<xsd:import namespace="http://www.piat.upm.es/robot" schemaLocation="Robot.xsd"/>
+<xsd:import namespace="http://www.piat.upm.es/responsable" schemaLocation="Responsable.xsd"/>
+
+
+<xsd:element name="mision" type="tns:tipoMision">
+    
+    <xsd:keyref name="tareaRealizadaRef" refer="tns:idTareaKey">
+        <xsd:selector xpath="./tns:robotTarea/tns:tareaRealizada"/>
+        <xsd:field xpath="."/>
+    </xsd:keyref>
+    <xsd:keyref name="robotAsignadoRef" refer="tns:idRobotKey">
+        <xsd:selector xpath="./tns:robotTarea/tns:robotAsignado"/>
+        <xsd:field xpath="."/>
+    </xsd:keyref>
+</xsd:element>
+
+<xsd:complexType name="tipoMision">
+    <xsd:sequence>
+        <xsd:element name="fecha" type="xsd:date"/>
+        <xsd:element name="idioma" type="tns:tipoIdioma"/>
+        <xsd:element name="descripcion" type="tns:tipoDescripcion"/>
+       
+        <xsd:element name="responsables" type="tns:tipoResponsables">
+            <xsd:unique name="uniqueIdentificadorFiscal">
+                <xsd:selector xpath="res:responsable"/>
+                <xsd:field xpath="@identificadorFiscal"/>
+            </xsd:unique>
+        </xsd:element>
+        
+        <xsd:element name="robots" type="tns:tipoRobots">
+            <xsd:unique name="idRobotKey">
+                <xsd:selector xpath="rob:robot"/>
+                <xsd:field xpath="@idRobot"/>
+            </xsd:unique>
+        </xsd:element>
+        
+        <xsd:element name="tareas" type="tns:tipoTareas">
+            <xsd:unique name="idTareaKey">
+                <xsd:selector xpath="tar:tarea"/>
+                <xsd:field xpath="@idTarea"/>
+            </xsd:unique>
+        </xsd:element>
+        
+        <xsd:element name="robotTarea" type="tns:tipoRobotTarea" minOccurs="1" maxOccurs="unbounded">
+        
+
+        </xsd:element>
+    </xsd:sequence>
+<xsd:attribute name="idMision" type="tns:tipoIdMision"/>
+</xsd:complexType>
+
+<xsd:simpleType name="tipoIdMision">
+    <xsd:restriction base="xsd:string">
+        <xsd:pattern value="MIS[0-9]{3}"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="tipoIdioma">
+    <xsd:attribute name="lang" type="xsd:language"/>
+</xsd:complexType>
+
+
+<xsd:complexType name="tipoDescripcion" mixed="true">
+    <xsd:sequence>
+        <xsd:element name="key" type="xsd:string" maxOccurs="unbounded"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="tipoResponsables" >
+    <xsd:sequence>
+        <xsd:element ref="res:responsable" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="tipoRobots">
+    <xsd:sequence>
+        <xsd:element ref="rob:robot" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="tipoTareas">
+    <xsd:sequence>
+        <xsd:element ref="tar:tarea" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="tipoRobotTarea">
+    <xsd:sequence>
+        <xsd:element name="tareaRealizada" type="tar:tipoIdTarea"/>
+        <xsd:element name="robotAsignado" minOccurs="1" maxOccurs="10" type="rob:tipoIdRobot"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+
+
+
+
+
+</xsd:schema>

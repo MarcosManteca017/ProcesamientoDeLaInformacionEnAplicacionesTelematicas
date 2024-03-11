@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Marcos Manteca Lozano-->
+<rob:robot idRobot="id-251" xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:rob="http://www.piat.upm.es/robot" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.piat.upm.es/robot Robot.xsd">
+    <rob:funcionalidad>Limpiza con ozono</rob:funcionalidad>
+    <rob:sistemaLimpieza>ozono</rob:sistemaLimpieza>
+    <rob:homologaciones>diseño pintura cableado</rob:homologaciones>
+    <rob:sensores>
+        <rob:numeroSensores>8</rob:numeroSensores>
+        <rob:sensor idSensor="ox1AV">
+            <rob:patogeno>estafilococo</rob:patogeno>
+            <rob:densidad>5000 bacterias/m2</rob:densidad>
+        </rob:sensor>
+        <rob:sensor idSensor="ox2AV">
+            <rob:patogeno>Gripe</rob:patogeno>
+            <rob:densidad>6000 bacterias/m2</rob:densidad>
+        </rob:sensor>
+    </rob:sensores>
+    <rob:actuadores>
+        <rob:numeroActuadores>5</rob:numeroActuadores>
+        <rob:actuador idActuador="AC01">
+            <rob:descripcion>Limpieza con ozono de zonas comunes</rob:descripcion>
+            <rob:alcanceSituacion>
+                <rob:tipoActuacion>Limpieza diaria</rob:tipoActuacion>
+                <rob:fechasActuacion>13:15:00</rob:fechasActuacion> <!-- yyyymm-ddThh:mm:ss-->
+                <rob:fechasActuacion>18:20:00</rob:fechasActuacion>
+            </rob:alcanceSituacion>
+        </rob:actuador>
+    </rob:actuadores>
+</rob:robot>

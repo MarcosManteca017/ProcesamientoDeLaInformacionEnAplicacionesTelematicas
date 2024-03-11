@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Marcos Manteca Lozano-->
+<tar:tarea idTarea="TOXXI-00003" xmlns:xi="http://www.w3.org/2001/XInclude"
+xmlns:tar="http://www.piat.upm.es/tarea" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.piat.upm.es/tarea Tarea.xsd">
+    <tar:descripcionTarea>Esta tarea requiere la especificación de la ubicación utilizando el formato GPX.</tar:descripcionTarea>
+    <tar:espacioTarea>
+        <tar:imagen idImagen="IMAG001">
+            <tar:datosImagen>
+                <tar:dimensiones>
+                    <tar:ancho>45</tar:ancho>
+                    <tar:alto>50</tar:alto>
+                </tar:dimensiones>
+                <tar:descripcion>Contiene imagenes de limpieza</tar:descripcion>
+            </tar:datosImagen>
+            <tar:contenido formato="tar:GIF"/>
+        </tar:imagen>
+    </tar:espacioTarea>
+</tar:tarea>

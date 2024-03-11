@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Marcos Manteca Lozano-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        targetNamespace="http://www.piat.upm.es/tarea" 
+                        xmlns:tns="http://www.piat.upm.es/tarea" 
+                        xmlns:kml="http://www.opengis.net/kml/2.2"
+                        elementFormDefault="qualified"> 
+
+
+<xsd:import namespace="http://www.opengis.net/kml/2.2" schemaLocation="https://schemas.opengis.net/kml/2.2.0/ogckml22.xsd"/>
+
+<xsd:element name="tarea" type="tns:tipoTarea"/><!-- unicidad de idImagen   <xsd:selector xpath="./tns:espacioTarea/tns:imagen"/>-->
+     
+<xsd:complexType name="tipoTarea">
+    <xsd:sequence>
+        <xsd:element name="descripcionTarea" type="xsd:string"/>
+        <xsd:element name="espacioTarea" type="tns:tipoEspacio" minOccurs="1" maxOccurs="unbounded"/>
+    </xsd:sequence>
+<xsd:attribute name="idTarea" type="tns:tipoIdTarea"/>
+</xsd:complexType>
+
+<xsd:simpleType name="tipoIdTarea">
+    <xsd:restriction base="xsd:string">
+        <xsd:pattern value="[A-Z]{5}-[0-9]{5}"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="tipoEspacio">
+    <xsd:choice>
+        <xsd:element name="volumenEspacio" type="tns:tipoVolumen"/>
+        <xsd:element name="puntosEspacio" type="tns:tipoPuntos"/>
+        <xsd:element name="imagen" type="tns:tipoImagen"/>
+    </xsd:choice>
+</xsd:complexType>
+
+<xsd:complexType name="tipoVolumen">
+    <xsd:all>
+        <xsd:element name="centro" type="tns:tipoCentro"/>
+        <xsd:element name="forma" type="tns:tipoForma"/>
+        <xsd:element name="altura" type="xsd:int"/>
+    </xsd:all>
+</xsd:complexType>
+
+<xsd:complexType name="tipoCentro">
+    <xsd:all>
+        <xsd:element name="longitud" type="kml:angle180Type"/>
+        <xsd:element name="latitud" type="kml:angle90Type"/>
+        <xsd:element name="altitud" type="tns:tipoAltitud"/>
+    </xsd:all>
+</xsd:complexType>
+
+
+<xsd:simpleType name="tipoAltitud">
+    <xsd:restriction base="xsd:double">
+        <xsd:minInclusive value="-416.5"/>
+        <xsd:maxInclusive value="8848"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="tipoForma">
+    <xsd:restriction base="xsd:token">
+        <xsd:enumeration value="circulo"/>
+        <xsd:enumeration value="cuadrado"/>
+        <xsd:enumeration value="rectangulo"/>
+        <xsd:enumeration value="poligono"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="tipoPuntos">
+    <xsd:sequence>
+        <xsd:element name="punto" type="tns:tipoCentro" minOccurs="3" maxOccurs="unbounded"/> <!-- referencio a tipoCentro-->
+        <xsd:element name="altura" type="xsd:int" minOccurs="1" />
+    </xsd:sequence>
+</xsd:complexType>
+
+<!-- <xsd:complexType name="tipoPunto">
+    <xsd:all>
+        <xsd:element name="longitud" type="kml:angle180Type"/> 
+        <xsd:element name="latitud" type="kml:angle90Type"/>
+        <xsd:element name="altitud" type="tns:tipoAltitud2"/>
+    </xsd:all>
+</xsd:complexType>-->
+
+
+<!-- 
+<xsd:simpleType name="tipoLongitd2">
+    <xsd:restriction base="xsd:double">
+        <xsd:minInclusive value="0"/>
+        <xsd:maxInclusive value="180"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="tipoLatitud2">
+    <xsd:restriction base="xsd:double">
+        <xsd:minInclusive value="-90"/>
+        <xsd:maxInclusive value="90"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:simpleType name="tipoAltitud2">
+    <xsd:restriction base="xsd:double">
+        <xsd:minInclusive value="-416.5"/>
+        <xsd:maxInclusive value="8848"/>
+    </xsd:restriction>
+</xsd:simpleType>
+-->
+
+<xsd:complexType name="tipoImagen">
+    <xsd:sequence>
+        <xsd:element name="datosImagen" type="tns:tipoDatosImag"/>
+        <xsd:element name="contenido" type="tns:tipoContenido"/> <!-- contenido de la imagen. Puesto que el contenido de una imagen es un valor enbinario, y en un documento XML solo puede haber texto, habrá que realizar unacodificación a Base64Binary del binario de la imagen. No es relevante para esta práctica realizar esto, por lo que puede contener simplemente un texto1 descriptivo.Este elemento tendrá un atributo, llamado formato, cuyo contenido se modelará mediante el uso de notaciones. Podrá ser GIF (image/gif), JPEG (image/jpeg) o PNG (image/png)-->
+    </xsd:sequence>
+<xsd:attribute name="idImagen" type="tns:tipoIdImagen"/>
+</xsd:complexType>
+
+<xsd:complexType name="tipoDatosImag">
+    <xsd:sequence>
+        <xsd:element name="dimensiones" type="tns:tipoDimensiones"/>
+        <xsd:element name="descripcion" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:complexType name="tipoContenido"> 
+    <xsd:simpleContent>
+        <xsd:extension base="xsd:base64Binary"> <!-- La extensión base (base) en XML Schema se utiliza para extender o especializar un tipo de datos existente. En el contexto de la definición de tipos complejos en XML Schema, la extensión base permite agregar nuevos elementos o atributos a un tipo de datos existente.-->
+            <xsd:attribute name="formato" type="tns:tipoFormato"/>
+        </xsd:extension>
+    </xsd:simpleContent>
+</xsd:complexType>
+<xsd:notation name="PNG" public="image/png"/>
+<xsd:notation name="JPEG" public="image/jpeg"/>
+<xsd:notation name="GIF" public="image/gif"/>
+
+<xsd:simpleType name="tipoFormato">
+    <xsd:restriction base="xsd:NOTATION">
+        <xsd:enumeration value="tns:GIF"/>
+        <xsd:enumeration value="tns:JPEG"/>
+        <xsd:enumeration value="tns:PNG"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+<xsd:complexType name="tipoDimensiones">
+    <xsd:sequence>
+        <xsd:element name="ancho" type="xsd:int"/>
+        <xsd:element name="alto" type="xsd:int"/>
+    </xsd:sequence>
+</xsd:complexType>
+
+<xsd:simpleType name="tipoIdImagen"> <!-- seria asi? mirar diferencia entre string token--> 
+    <xsd:restriction base="xsd:string">
+        <xsd:pattern value="IMAG[0-9]{3}"/>
+    </xsd:restriction>
+</xsd:simpleType>
+
+</xsd:schema>

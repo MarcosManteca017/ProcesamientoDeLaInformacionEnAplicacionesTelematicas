@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Marcos Manteca Lozano-->
+<res:responsable identificadorFiscal="M1234567A"
+ xmlns:xi="http://www.w3.org/2001/XInclude"
+ xmlns:res="http://www.piat.upm.es/responsable" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.piat.upm.es/responsable Responsable.xsd">
+    <res:colaboradores>
+        <res:persona>Marcos Manteca</res:persona>
+        <res:persona>Jaime Garcia</res:persona>
+        <res:persona>Belen Lozano</res:persona>
+        <res:departamento>Telematica</res:departamento>
+        <res:departamento>Logica</res:departamento>
+    </res:colaboradores>
+    <res:contacto>
+        <res:email>marmlozano@gmail.com</res:email>
+        <res:uri>http://www.example.com/juan</res:uri>
+    </res:contacto>
+</res:responsable>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot idRobot="id-251" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <funcionalidad>Limpieza con vapor de cristales</funcionalidad>
+    <sistemaLimpieza>vapor</sistemaLimpieza>
+    <homologaciones>diseño color ruedas </homologaciones>
+    <sensores>
+        <numeroSensores></numeroSensores>
+        <sensor idSensor="ox1AV">
+            <patogeno>estafilococo</patogeno>
+            <densidad>3000metros</densidad>
+        </sensor>
+    </sensores>
+    <actuadores>
+        <numeroActuadores>5</numeroActuadores>
+        <actuador idActuador="AC01">
+            <descripcion>Actua con una limpieza diaria</descripcion>
+            <alcanceSituacion>
+                <tipoActuacion>Limpieza diaria</tipoActuacion>
+                <fechasActuacion>10:30:00 12:30:00</fechasActuacion>
+            </alcanceSituacion>
+        </actuador>
+        <actuador idActuador="AD02">
+            <descripcion>Actua con una limpieza trimestral</descripcion>
+            <alcanceSituacion>
+                <tipoActuacion>Limpieza trimestral</tipoActuacion>
+                <fechasActuacion>14:30:00 22:15:00</fechasActuacion>
+            </alcanceSituacion>
+        </actuador>
+    </actuadores>
+</robot>

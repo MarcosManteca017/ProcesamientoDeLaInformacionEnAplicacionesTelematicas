@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot idRobot="id-251" xmlns:xi="http://www.w3.org/2001/XInclude">
+    <funcionalidad>Limpiza con ozono</funcionalidad>
+    <sistemaLimpieza>ozono</sistemaLimpieza>
+    <homologaciones>diseño pintura cableado</homologaciones>
+    <sensores>
+        <numeroSensores>8</numeroSensores>
+        <sensor idSensor="ox1AV">
+            <patogeno>estafilococo</patogeno>
+            <densidad>5000metros</densidad>
+        </sensor>
+        <sensor idSensor="ox2AV">
+            <patogeno>Gripe</patogeno>
+        </sensor>
+    </sensores>
+    <actuadores>
+        <numeroActuadores>5</numeroActuadores>
+        <actuador idActuador="AC01">
+            <descripcion>Limpieza con ozono de zonas comunes</descripcion>
+            <alcanceSituacion>
+                <tipoActuacion>Limpieza diaria</tipoActuacion>
+                <fechasActuacion>13:15:00;18:20:00</fechasActuacion> <!-- cambiar-->
+            </alcanceSituacion>
+        </actuador>
+    </actuadores>
+</robot>

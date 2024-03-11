@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tar:tarea idTarea="TOXXI-00002" xmlns:xi="http://www.w3.org/2001/XInclude"
+xmlns:tar="http://www.piat.upm.es/tarea" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.piat.upm.es/tarea Tarea.xsd">
+    <tar:descripcionTarea>Esta tarea requiere la especificación de la ubicación utilizando el formato GML.</tar:descripcionTarea>
+    <tar:espacioTarea>
+        <tar:puntosEspacio>
+            <tar:punto>
+                <tar:longitud>20</tar:longitud>
+                <tar:latitud>89</tar:latitud>
+                <tar:altitud>3000</tar:altitud>
+            </tar:punto>
+            <tar:punto>
+                <tar:longitud>21</tar:longitud>
+                <tar:latitud>90</tar:latitud>
+                <tar:altitud>3001</tar:altitud>
+            </tar:punto>
+            <tar:punto>
+                <tar:longitud>22</tar:longitud>
+                <tar:latitud>75</tar:latitud>
+                <tar:altitud>3002</tar:altitud>
+            </tar:punto>
+            <tar:altura>6</tar:altura>
+        </tar:puntosEspacio>
+    </tar:espacioTarea>
+</tar:tarea>

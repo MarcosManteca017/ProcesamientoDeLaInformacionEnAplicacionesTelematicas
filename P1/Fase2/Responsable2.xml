@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<res:responsable identificadorFiscal="L1234567A" 
+xmlns:xi="http://www.w3.org/2001/XInclude"
+xmlns:res="http://www.piat.upm.es/responsable" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.piat.upm.es/responsable Responsable.xsd">
+
+
+    <res:colaboradores>
+        <res:departamento>Señales</res:departamento>
+    </res:colaboradores>
+    <res:contacto>
+        <res:email>belmlozano@gmail.com</res:email>
+    </res:contacto>
+</res:responsable>
